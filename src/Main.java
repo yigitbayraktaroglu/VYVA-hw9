@@ -2,21 +2,23 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 /**
  * @file hw9_170420050
- * @description Programınızın açıklaması ne yaptığına dair.
  * @assignment 9
  * @date 16.05.2022
  * @author yigit bayraktaroglu yigitbayraktaroglu@marun.edu.tr
  */
 
 public class Main extends Reader {
+    //Değişkenler tanımlandı.
     static int winnerName;
     static Scanner scanner = new Scanner(System.in);
     static int oyuncu1wincount = 0;
     static int oyuncu2wincount = 0;
     static  String[] oyuncu1;
     static String[] oyuncu2;
+    //Bir sonraki raunda geçerken yapılan işlemlerin bulunduğu fonksiyon
     static void nextRaund(BinarySearchTree oyuncu1tree, BinarySearchTree oyuncu2tree,
-                          int winnerName){
+                          int winnerName)
+    {
         if(winnerName==1){
             int temp1=maxValue(oyuncu2tree.root);
             int temp2=oyuncu1tree.root.key;
@@ -37,7 +39,7 @@ public class Main extends Reader {
 
 
     }
-
+//esitlik durumunda yapılacak işlemlerin bulunduğu fonksiyon
     static void esitlik(BinarySearchTree oyuncu1tree, BinarySearchTree oyuncu2tree) {
         String temp;
         temp=oyuncu1[0];
@@ -48,9 +50,8 @@ public class Main extends Reader {
         for (String p : oyuncu2)
             oyuncu2tree.insert(Integer.parseInt(p));
     }
-
+//oyunun çalıştığı ve yazdırıldığı foknskiyon
     static void game(BinarySearchTree oyuncu1tree, BinarySearchTree oyuncu2tree) {
-
         resetTemp();
         /*----------------------------------------------------------*/
         System.out.println("--------------------------");
@@ -93,8 +94,6 @@ public class Main extends Reader {
                 System.out.println("Devam icin ->1\nDurmak icin->0");
                 int choice = scanner.nextInt();
                 switch (choice) {
-                    case 0:
-                        break;
                     case 1:
                         nextRaund(oyuncu1tree,oyuncu2tree,winnerName);
                         game(oyuncu1tree, oyuncu2tree);
