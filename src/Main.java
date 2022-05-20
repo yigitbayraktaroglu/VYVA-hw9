@@ -1,4 +1,4 @@
-import java.sql.SQLOutput;
+
 import java.util.Scanner;
 /**
  * @file hw9_170420050
@@ -93,13 +93,9 @@ public class Main extends Reader {
             }else{
                 System.out.println("Devam icin ->1\nDurmak icin->0");
                 int choice = scanner.nextInt();
-                switch (choice) {
-                    case 1:
-                        nextRaund(oyuncu1tree,oyuncu2tree,winnerName);
-                        game(oyuncu1tree, oyuncu2tree);
-                        break;
-                    default:
-                        break;
+                if (choice == 1) {
+                    nextRaund(oyuncu1tree, oyuncu2tree, winnerName);
+                    game(oyuncu1tree, oyuncu2tree);
                 }
             }
     }
